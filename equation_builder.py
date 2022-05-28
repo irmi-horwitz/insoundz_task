@@ -5,7 +5,8 @@ class EquationBuilder:
     This class builds the equations for calculating clap's position based on recording times or vice versa.
     More detail on the maths itself can be found in the README file.
     """
-    def get_direct_eq(self, clap_location, room):
+    @staticmethod
+    def get_direct_eq(clap_location, room):
         """
         Get the equation for a straight line between mic and clap.
         Args:
@@ -41,7 +42,8 @@ class EquationBuilder:
 
         return sqrt((x-aX)**2 + (y-aY)**2) + sqrt((aX-mX)**2 + (aY-mY)**2)
 
-    def get_top_wall_intersection(self, clap_location, room):
+    @staticmethod
+    def get_top_wall_intersection(clap_location, room):
         """
         Get the position of sound reflection off top wall.
         Args:
@@ -57,7 +59,8 @@ class EquationBuilder:
         g = (2*h-y-mY)/(x-mX)
         return (h/g+mX-mX/g, h)
 
-    def get_right_wall_intersection(self, clap_location, room):
+    @staticmethod
+    def get_right_wall_intersection(clap_location, room):
         """
         Get the position of sound reflection off right wall.
         Args:

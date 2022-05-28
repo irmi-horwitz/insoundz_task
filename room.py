@@ -122,7 +122,7 @@ class Room:
 
     def infer_time(self, clap_location: Tuple) -> int:
         """
-        Calculate how long it takes for the sound to arrive to mic from each direction: 
+        Calculate how long it takes for the sound to arrive to mic from each direction:
         straight line, reflection off top wall, and reflection off right wall.
         Args:
             clap_location: Tuple of (x, y) ints

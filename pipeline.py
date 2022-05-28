@@ -29,7 +29,8 @@ def clap_event(room, times: List=None, clap_location: Tuple=None):
 
     if times:
         solver = EquationSolver(room)
-        return solver.solve_for_location(times)
+        room.mic.times = times
+        return solver.solve_for_location()
     
     if clap_location:
         return room.infer_time(clap_location)
@@ -39,7 +40,7 @@ def create_room():
     """
     Creates a dummy room with mic at (0,0), wall at x=15, and wall at y=10.
     """
-    mic = Mic(0,0)
+    mic = Mic(0,0, times=reflection_times)
     right_wall = Wall(wall_position='right', wall_limit=15)
     top_wall = Wall(wall_position='top', wall_limit=15)
 

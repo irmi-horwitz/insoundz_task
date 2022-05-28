@@ -23,7 +23,7 @@ class EquationSolver:
     def __init__(self, room: Room):
         self.room = room
     
-    def solve_for_location(self, times: List[int]) -> List[Tuple]:
+    def solve_for_location(self) -> List[Tuple]:
         """
         Generates estimates to attribute time to specific wall. 
         Iterates over those estimations, and for each estimation, tries to solve the equation. 
@@ -48,6 +48,8 @@ class EquationSolver:
                          Eq(top_wall_eq, reordered_times[1])]
             return equations
 
+
+        times = self.room.mic.times
         wall_order_estimates = self.room.reflection_order_estimator(times)
         results = []
         x, y = symbols('x y')
