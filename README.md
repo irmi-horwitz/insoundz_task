@@ -33,3 +33,7 @@ I have set my scene to be as follows:
 Some elements from the design were dropped due to time constraints. 
 Mainly, my original design had a testing tool and CLI for ease of usage, and testing before or during operation.
 Also, while I wrote the abstraction for the RoomConfig class, the functions are not implamented and the config isn't used, also due to time constraints.
+
+The provided timestamps to test seem to be not possible in the provided environment. 
+An easy way to see that is calculating the longest path that sound can take in the room.
+The longest possible path is if the clap happens at (0,0) and the microphone is at the same spot. Tn that case sound will have to trave all the way to (15,10) and back. each direction in that case will be the length of sqrt(15^2+10^2) = sqrt(325) = 18.0277563773 per direction. The longest path from the provided timestamps is t3 = 36.82250459, which is larger than 18.0277563773 * 2, the clap's echo had to have come from outside the room.
